@@ -15,7 +15,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Using a consistent, clean sans-serif stack */
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
@@ -25,7 +24,7 @@ body {
     line-height: 1.6;
 }
 
-/* Global Heading Styles for Consistency */
+/* Global Heading Styles */
 h1, h2, h3, h4 {
     color: var(--primary-green);
     margin-bottom: 15px;
@@ -45,7 +44,7 @@ p, li {
 }
 
 /* ==========================
-   HEADER & NAVIGATION
+   HEADER & NAVIGATION (Fixed Green Theme)
 ========================== */
 
 .header {
@@ -53,8 +52,13 @@ p, li {
     justify-content: space-between;
     align-items: center;
     padding: 15px 60px;
-    background: var(--primary-green);
-    color: var(--white);
+    background: var(--primary-green) !important; /* Official Green */
+    color: var(--white) !important;
+    border-bottom: 4px solid var(--accent-gold); /* Government Gold Accent */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .logo-area {
@@ -69,29 +73,37 @@ p, li {
 
 .logo-area h2 {
     font-size: 18px;
-    color: var(--white);
+    color: var(--white) !important; /* Force white text on green bg */
     margin-bottom: 0;
     text-align: left;
     line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
 }
 
 .nav a {
-    color: var(--white);
+    color: var(--white) !important; /* Force white links */
     margin-left: 25px;
     text-decoration: none;
-    font-weight: 500;
-    font-size: 15px;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
 }
 
 .nav a:hover {
-    text-decoration: underline;
+    color: var(--accent-gold) !important; /* Hover turns gold */
 }
 
 /* ==========================
    HERO SECTIONS
 ========================== */
 
-/* Main Home Hero */
 .hero {
     height: 450px;
     background-size: cover;
@@ -102,7 +114,6 @@ p, li {
     padding-left: 80px;
     color: var(--white);
     position: relative;
-    transition: background-image 1s ease-in-out;
 }
 
 .hero::before {
@@ -131,7 +142,6 @@ p, li {
     color: var(--white);
 }
 
-/* Interior Page Hero */
 .page-hero {
     background: var(--primary-green);
     color: var(--white);
@@ -139,13 +149,7 @@ p, li {
     padding: 80px 20px;
 }
 
-.page-hero h1 {
-    font-size: 40px;
-    color: var(--white);
-}
-
-.page-hero p {
-    font-size: 18px;
+.page-hero h1, .page-hero p {
     color: var(--white);
 }
 
@@ -258,7 +262,7 @@ p, li {
 }
 
 /* ==========================
-   PROJECT CARDS (Common)
+   PROJECT CARDS
 ========================== */
 
 .projects, .projects-page {
@@ -375,14 +379,8 @@ p, li {
     text-align: center;
 }
 
-.impact-cta h2 {
+.impact-cta h2, .impact-cta p {
     color: var(--white);
-}
-
-.impact-cta p {
-    color: var(--white);
-    font-size: 18px;
-    margin-bottom: 30px;
 }
 
 /* ==========================
@@ -479,5 +477,3 @@ p, li {
         font-size: 32px;
     }
 }
-
-
