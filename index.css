@@ -23,6 +23,10 @@ body {
     line-height: 1.6;
 }
 
+body.modal-open {
+    overflow: hidden;
+}
+
 img {
     display: block;
 }
@@ -47,6 +51,21 @@ h2 {
     text-transform: uppercase;
 }
 
+section > h2::after,
+.news-intro h2::after,
+.about-text h2::after {
+    content: "";
+    display: block;
+    width: 54px;
+    height: 3px;
+    background: var(--accent-gold);
+    margin: 14px auto 0;
+}
+
+.about-text h2::after {
+    margin-left: 0;
+}
+
 p,
 li {
     font-size: 16px;
@@ -64,9 +83,32 @@ li {
     color: var(--white);
     border-bottom: 4px solid var(--accent-gold);
     position: sticky;
-    top: 0;
+    top: 34px;
     z-index: 1000;
     box-shadow: 0 8px 24px rgba(8, 79, 45, 0.18);
+    transition: box-shadow 0.25s ease;
+}
+
+.header.scrolled {
+    box-shadow: 0 10px 30px rgba(8, 79, 45, 0.26);
+}
+
+.top-strip {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+    min-height: 34px;
+    padding: 7px 60px;
+    background: var(--deep-green);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    position: sticky;
+    top: 0;
+    z-index: 1001;
 }
 
 .logo-area {
@@ -156,6 +198,7 @@ li {
     padding: 96px 80px;
     color: var(--white);
     position: relative;
+    overflow: hidden;
 }
 
 .hero::before {
@@ -163,6 +206,20 @@ li {
     position: absolute;
     inset: 0;
     background: linear-gradient(90deg, rgba(5, 42, 25, 0.82), rgba(5, 42, 25, 0.52), rgba(5, 42, 25, 0.18));
+    z-index: 1;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+.hero-bg.active {
+    opacity: 1;
 }
 
 .hero-content {
@@ -208,11 +265,27 @@ li {
     text-align: center;
     padding: 84px 20px;
     border-bottom: 4px solid var(--accent-gold);
+    position: relative;
+    overflow: hidden;
+}
+
+.page-hero::after {
+    content: "ESDR";
+    position: absolute;
+    right: clamp(16px, 8vw, 110px);
+    bottom: -18px;
+    color: rgba(255, 255, 255, 0.07);
+    font-size: clamp(78px, 14vw, 170px);
+    font-weight: 800;
+    line-height: 1;
+    pointer-events: none;
 }
 
 .page-hero h1,
 .page-hero p {
     color: var(--white);
+    position: relative;
+    z-index: 2;
 }
 
 .page-hero h1 {
@@ -422,6 +495,12 @@ li {
 .project-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 16px 34px rgba(8, 79, 45, 0.12);
+    border-color: rgba(212, 164, 55, 0.7);
+}
+
+.project-card:hover span {
+    background: var(--primary-green);
+    color: var(--white);
 }
 
 .project-image {
@@ -472,6 +551,10 @@ li {
     display: flex;
     width: max-content;
     animation: scrollPartners 40s linear infinite;
+}
+
+.partners-track:hover {
+    animation-play-state: paused;
 }
 
 .partner {
@@ -550,6 +633,28 @@ li {
     transform: translateY(-1px);
 }
 
+.section-action {
+    text-align: center;
+    margin-top: 34px;
+}
+
+.outline-dark-btn {
+    display: inline-block;
+    color: var(--primary-green);
+    border: 1px solid var(--primary-green);
+    padding: 11px 24px;
+    font-size: 13px;
+    font-weight: 800;
+    border-radius: 4px;
+    text-transform: uppercase;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+.outline-dark-btn:hover {
+    background: var(--primary-green);
+    color: var(--white);
+}
+
 .outline-btn {
     display: inline-block;
     color: var(--white);
@@ -564,6 +669,40 @@ li {
 .small-btn {
     padding: 8px 16px;
     font-size: 12px;
+}
+
+.filter-panel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 960px;
+    margin: 0 auto 34px;
+}
+
+.filter-btn {
+    border: 1px solid var(--line);
+    background: var(--white);
+    color: var(--primary-green);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--primary-green);
+    color: var(--white);
+    border-color: var(--primary-green);
+}
+
+.project-item[hidden] {
+    display: none;
 }
 
 .news-page {
@@ -639,6 +778,19 @@ li {
     gap: 15px;
 }
 
+.contact-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.contact-form label span {
+    color: var(--text-dark);
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
 .contact-form input,
 .contact-form textarea {
     width: 100%;
@@ -652,6 +804,123 @@ li {
 .contact-form textarea:focus {
     outline: 2px solid rgba(15, 107, 63, 0.22);
     border-color: var(--primary-green);
+}
+
+.form-message {
+    display: none;
+    margin-bottom: 0;
+    padding: 11px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-message.error,
+.form-message.success {
+    display: block;
+}
+
+.form-message.error {
+    background: #fff1f1;
+    color: #9f2424;
+    border: 1px solid #f1c6c6;
+}
+
+.form-message.success {
+    background: var(--soft-green);
+    color: var(--primary-green);
+    border: 1px solid #c7ded1;
+}
+
+.news-read-btn {
+    font-family: inherit;
+}
+
+.news-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(6, 31, 20, 0.62);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 22px;
+    z-index: 2000;
+}
+
+.news-modal.open {
+    display: flex;
+}
+
+.news-modal-card {
+    width: min(560px, 100%);
+    background: var(--white);
+    border-radius: 8px;
+    padding: 32px;
+    position: relative;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+}
+
+.news-modal-card h2 {
+    text-align: left;
+    margin-bottom: 12px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--line);
+    background: var(--white);
+    border-radius: 4px;
+    color: var(--text-dark);
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.back-to-top {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: var(--accent-gold);
+    color: var(--text-dark);
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+    z-index: 1200;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid rgba(212, 164, 55, 0.5);
+    outline-offset: 3px;
 }
 
 .footer {
@@ -703,10 +972,19 @@ li {
 }
 
 @media screen and (max-width: 900px) {
+    .top-strip {
+        padding: 7px 20px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 2px;
+        position: static;
+    }
+
     .header {
         padding: 12px 20px;
         flex-wrap: wrap;
         gap: 12px;
+        top: 0;
     }
 
     .logo-area {
@@ -740,6 +1018,10 @@ li {
         padding: 14px 16px;
         border-top: 1px solid rgba(255, 255, 255, 0.16);
         border-bottom: none;
+    }
+
+    .nav a.active {
+        background: rgba(212, 164, 55, 0.12);
     }
 
     .hero {
@@ -869,5 +1151,24 @@ li {
 
     .contact-card {
         padding: 28px 20px;
+    }
+
+    .filter-panel {
+        justify-content: stretch;
+    }
+
+    .filter-btn {
+        flex: 1 1 140px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
     }
 }
