@@ -5,103 +5,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News & Media | Enugu State Donor Relations</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
-
-   <!-- HEADER -->
-<header class="header">
-    <div class="logo-area">
-        <img src="Gemini_Generated_Image_ixo9hwixo9hwixo9.png" alt="Enugu State Donor Relations Logo">
-        <h2>ENUGU STATE<br>DONOR RELATIONS</h2>
-    </div>
-
-    <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="impact.html">Impact</a>
-        <a href="news.html">News</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-</header>
-
-    <!-- PAGE HERO -->
-    <section class="page-hero">
-        <h1>NEWS & MEDIA</h1>
-        <p>Stay updated with the latest happenings and official announcements.</p>
-    </section>
-
-    <!-- NEWS FEED SECTION -->
-    <section class="projects-page">
-        <div class="projects-container">
-
-            <!-- NEWS ITEM 1 (Placeholder) -->
-            <div class="project-item">
-                <div class="project-image">
-                    <i class="fa-solid fa-newspaper fa-3x" style="color: #ccc;"></i>
-                </div>
-                <div class="project-content">
-                    <p style="font-size: 13px; color: #0f6b3f; font-weight: bold; margin-bottom: 5px;">MAY 13, 2026</p>
-                    <h2>Latest Update Title Here</h2>
-                    <p>A brief summary of the news event or press release will go here to give readers a quick overview of the story.</p>
-                    <button class="donate-btn" style="padding: 8px 16px; font-size: 12px;">READ MORE</button>
-                </div>
-            </div>
-
-            <!-- NEWS ITEM 2 (Placeholder) -->
-            <div class="project-item">
-                <div class="project-image">
-                    <i class="fa-solid fa-camera-retro fa-3x" style="color: #ccc;"></i>
-                </div>
-                <div class="project-content">
-                    <p style="font-size: 13px; color: #0f6b3f; font-weight: bold; margin-bottom: 5px;">MAY 2026</p>
-                    <h2>Upcoming Event or Announcement</h2>
-                    <p>Details regarding upcoming stakeholder meetings, project inspections, or partnership ceremonies will be listed here.</p>
-                    <button class="donate-btn" style="padding: 8px 16px; font-size: 12px;">READ MORE</button>
-                </div>
-            </div>
-
-            <!-- NEWS ITEM 3 (Placeholder) -->
-            <div class="project-item">
-                <div class="project-image">
-                    <i class="fa-solid fa-bullhorn fa-3x" style="color: #ccc;"></i>
-                </div>
-                <div class="project-content">
-                    <p style="font-size: 13px; color: #0f6b3f; font-weight: bold; margin-bottom: 5px;">COMING SOON</p>
-                    <h2>Official Press Release</h2>
-                    <p>This space is reserved for official statements from the Office of Donor Relations regarding state-wide developments.</p>
-                    <button class="donate-btn" style="padding: 8px 16px; font-size: 12px;">READ MORE</button>
-                </div>
-            </div>
-
+    <header class="header">
+        <div class="logo-area">
+            <img src="Gemini_Generated_Image_ixo9hwixo9hwixo9.png" alt="Enugu State Donor Relations Logo">
+            <h2>ENUGU STATE<br>DONOR RELATIONS</h2>
         </div>
-    </section>
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+        <nav class="nav" aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="impact.html">Impact</a>
+            <a href="news.html" class="active">News</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-    <!-- FOOTER -->
+    <main>
+        <section class="page-hero">
+            <h1>NEWS & MEDIA</h1>
+            <p>Stay updated with the latest happenings and official announcements.</p>
+        </section>
+
+        <section class="projects-page news-page">
+            <div class="news-intro">
+                <span class="section-label">Official updates</span>
+                <h2>Latest announcements and media notices</h2>
+            </div>
+
+            <div class="projects-container">
+                <article class="project-item news-item">
+                    <div class="project-image news-icon"><i class="fa-solid fa-newspaper"></i></div>
+                    <div class="project-content">
+                        <p class="news-date">MAY 13, 2026</p>
+                        <h2>Latest Update Title Here</h2>
+                        <p>A brief summary of the news event or press release will go here to give readers a quick overview of the story.</p>
+                        <a href="#" class="donate-btn small-btn">READ MORE</a>
+                    </div>
+                </article>
+
+                <article class="project-item news-item">
+                    <div class="project-image news-icon"><i class="fa-solid fa-camera-retro"></i></div>
+                    <div class="project-content">
+                        <p class="news-date">MAY 2026</p>
+                        <h2>Upcoming Event or Announcement</h2>
+                        <p>Details regarding upcoming stakeholder meetings, project inspections, or partnership ceremonies will be listed here.</p>
+                        <a href="#" class="donate-btn small-btn">READ MORE</a>
+                    </div>
+                </article>
+
+                <article class="project-item news-item">
+                    <div class="project-image news-icon"><i class="fa-solid fa-bullhorn"></i></div>
+                    <div class="project-content">
+                        <p class="news-date">COMING SOON</p>
+                        <h2>Official Press Release</h2>
+                        <p>This space is reserved for official statements from the Office of Donor Relations regarding state-wide developments.</p>
+                        <a href="#" class="donate-btn small-btn">READ MORE</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
     <footer class="footer">
         <div class="footer-container">
-            <div class="footer-section">
-                <h3>Enugu State Donor Relations</h3>
-                <p><i class="fa-solid fa-location-dot"></i> Abuja Building<br>Enugu State Government House<br>Enugu State, Nigeria</p>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p><i class="fa-solid fa-phone"></i> Phone: __________</p>
-                <p><i class="fa-solid fa-envelope"></i> Email: info@enugudonorrelations.gov.ng</p>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <a href="https://www.instagram.com/enugudonorrelations?igsh=aGJiYTN5NWJxbzJ3" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
-                <a href="https://www.facebook.com/share/1RMy5qS3ZX/" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a>
-            </div>
+            <div class="footer-section"><h3>Enugu State Donor Relations</h3><p><i class="fa-solid fa-location-dot"></i> Abuja Building<br>Enugu State Government House<br>Enugu State, Nigeria</p></div>
+            <div class="footer-section"><h3>Contact</h3><p><i class="fa-solid fa-phone"></i> Phone: __________</p><p><i class="fa-solid fa-envelope"></i> Email: info@enugudonorrelations.gov.ng</p></div>
+            <div class="footer-section"><h3>Follow Us</h3><a href="https://www.instagram.com/enugudonorrelations?igsh=aGJiYTN5NWJxbzJ3" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a><a href="https://www.facebook.com/share/1RMy5qS3ZX/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i> Facebook</a></div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2026 Enugu State Donor Relations. All Rights Reserved.</p>
-        </div>
+        <div class="footer-bottom"><p>&copy; 2026 Enugu State Donor Relations. All Rights Reserved.</p></div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
+
 </html>
